@@ -1,0 +1,59 @@
+<mat-toolbar>
+    <span>{{actionTitel}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1">
+      <mat-icon class="mat-18">close</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="container">
+
+    <form [formGroup]="exitpForm" class="normal-form">
+      <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+          <div class="contorles-container">
+
+
+
+            <mat-form-field appearance="standard">
+              <mat-label>Fees</mat-label>
+              <input formControlName="fees" matInput placeholder="Fees*">
+              <mat-error> Fees is required </mat-error>
+            </mat-form-field>
+
+            <mat-form-field  appearance="standard">
+              <mat-label >Recipt No  </mat-label>
+              <input  formControlName="reciptNo" matInput placeholder="Recipt No*">
+              <mat-error> Fees is required </mat-error>
+            </mat-form-field>
+            
+            
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="contorles-container">
+
+          
+            
+            <mat-form-field appearance="standard">
+              <mat-label>Bank Check Number</mat-label>
+              <input formControlName="checkBankNo" matInput placeholder="Bank Check Number*">
+              <mat-error> Bank Check Number is required </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="standard">
+              <mat-label>Employee Name</mat-label>
+              <input formControlName="empName" matInput placeholder="Employee Name*">
+              <mat-error> Employee Name is required </mat-error>
+            </mat-form-field>
+
+            <div class="button-row">
+              <button mat-raised-button color="primary" (click)="onCreate()" [disabled]="exitpForm.invalid"
+                type="submit">{{actionBtn}}</button>
+              <button mat-raised-button color="warn" (click)=" onClear()">Claer</button>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </div>
+

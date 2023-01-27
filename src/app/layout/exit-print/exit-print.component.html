@@ -1,0 +1,90 @@
+
+
+         
+             <div class="ticket " id="print-exit">
+            <img src="../../../assets/Images/head invoce.png" alt="Logo">
+            <p class="centered"><u><b>شهادة خلو طرف </b></u>
+                <br>رقم الخلو طرف : <span class="exidpermitId">{{exitPermitprint.exitpermitId}}</span>
+                <br>التاريخ : <span class="exidpermit">{{exitPermitprint.permitdate}}</span>
+                <br>المندوب / او الوكيل : <span  class="exidpermitId">{{exitPermitprint.empName}}</span>
+        </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="quantity">البيانات</th>
+                        <th class="description">الوصف</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="quantity">رقم الناقلة :</td>
+                        <td class="description"><span>{{exitPermitprint.income.truckNo}}</span></td>
+                       
+                    </tr>
+                    <tr>
+                        <td class="quantity">نوع الوقود : </td>
+                        <td class="description"><span>{{exitPermitprint.income.fuel.fuelName}} </span></td>
+                        
+                    </tr>
+                
+					<tr>
+                        <td class="quantity">الشركة :</td>
+                        <td class="description"> <span>{{exitPermitprint.income.companies.companyName}}</span></td>
+                        
+                    </tr>
+					<tr>
+                        <td class="quantity">الجهة :</td>
+                        <td class="description"><span>{{exitPermitprint.income.locales.locaName}}</span></td>
+                        
+                    </tr>
+					<tr>
+                        <td class="quantity">الكمية :</td>
+                        <td class="description"><span>{{exitPermitprint.income.quantity}}</span></td>
+                        
+                    </tr>
+					<tr>
+                        <td class="quantity">المبلغ:</td>
+                        <td class="description"><span>{{exitPermitprint.fees}}</span></td>
+                        
+                    </tr>
+					<tr>
+                        <td class="quantity">رقم الايصال :</td>
+                        <td class="description"><span><span>{{exitPermitprint.reciptNo}}</span></span></td>
+                        
+                    </tr>
+		        <tr>
+                        <td class="quantity">رقم الشيك :</td>
+                        <td class="description"><span>{{exitPermitprint.checkBankNo}}</span></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td class="quantity">اسم المتحصل :</td>
+                        <td class="description"><span>{{exitPermitprint.empName}}</span></td>
+                        
+                    </tr>
+					
+                    
+					
+                </tbody>
+            </table>
+			
+			 <p class="centered">وهذة شهادة منا للإعتماد !
+                <br>مدير ادارة النقل والبترول </p>
+				
+			</div>
+   
+                
+                <div class="d-grid gap-2  hidden-print" style="padding-top: 10px;">
+                        <button 
+                        [print]="['print-exit' ,config]"
+                        type="button" class="btn btn-success" 
+                        (click)="onClose()">
+                        print
+                </button>
+                </div>
+
+
+
+

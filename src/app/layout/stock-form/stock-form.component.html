@@ -1,0 +1,62 @@
+<mat-toolbar>
+    <span>{{actionTitel}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1">
+      <mat-icon class="mat-18">close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+    <form [formGroup]="stockForm" class="normal-form">
+      <mat-grid-list cols="1" rowHeight="350px">
+        <mat-grid-tile>
+          <div class="contorles-container">
+            
+            <mat-form-field appearance="standard">
+              <mat-label>Chose Company</mat-label>
+              <mat-select formControlName="companies" placeholder="Companies*">
+                <mat-option *ngFor="let companies of companyDate " [value]="companies">
+                  {{companies.companyName}}
+                </mat-option>
+              </mat-select>
+              <mat-error> Company is required </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>Chose Fuel Type</mat-label>
+              <mat-select formControlName="fuel" placeholder="Fuel Type*">
+                <mat-option *ngFor="let fuels of fuelDate " [value]="fuels">
+                  {{fuels.fuelName}}
+                </mat-option>
+              </mat-select>
+              <mat-error> FuelType is required </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Chose Discrimination</mat-label>
+                <mat-select formControlName="discriminations"  placeholder="Discrimination*">
+                  <mat-option *ngFor="let discrimination of discrimitionDate " [value]="discrimination">
+                    {{discrimination.discrName}}</mat-option>
+                </mat-select>
+                <mat-error> Discrimination is required </mat-error>
+              </mat-form-field>
+
+            
+            <mat-form-field appearance="standard">
+              <mat-label>Quantity</mat-label>
+              <input formControlName="quantity" matInput placeholder="Quantity*">
+              <mat-error> Quantity is required </mat-error>
+            </mat-form-field>
+            
+            <div class="button-row">
+                <button mat-raised-button color="primary" (click)="onCreate()" [disabled]="stockForm.invalid"
+                  type="submit">{{actionBtn}}</button>
+                <button mat-raised-button color="warn" (click)=" onClear()">Claer</button>
+              </div>
+          </div>
+        </mat-grid-tile>
+        
+      </mat-grid-list>
+    </form>
+  </div>
+

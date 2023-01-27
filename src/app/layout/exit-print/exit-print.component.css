@@ -1,0 +1,66 @@
+
+
+* {
+    font-size: 13px;
+    font-family: 'Times New Roman';
+}
+
+td,
+th,
+tr,
+table {
+    direction:rtl;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+    
+}
+
+td.description,
+th.description {
+    width: 170px;
+    max-width: 170px;
+}
+
+td.quantity,
+th.quantity {
+    width: 170px;
+    max-width: 170px;
+    word-break: break-all;
+}
+
+td.price,
+th.price {
+    width: 170px;
+    max-width: 170px;
+    word-break: break-all;
+}
+
+.centered {
+    text-align: center;
+    align-content: center;
+    direction:rtl;
+}
+
+.ticket {
+    width: 250px;
+    max-width: 250px;
+   
+    
+}
+
+img {
+    max-width: inherit;
+    width: inherit;
+}
+
+.exidpermitId{
+    font-weight: bold;
+   
+}
+
+@media print {
+    .hidden-print,
+    .hidden-print * {
+        display: none !important;
+    }
+}

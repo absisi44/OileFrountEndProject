@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <span>{{actionTitel}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1">
+      <mat-icon class="mat-18">close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+
+    <form [formGroup]="localForm" class="normal-form">
+        <mat-grid-list cols="1" rowHeight="120px">
+          <mat-grid-tile>
+            <div class="contorles-container">
+              <mat-form-field appearance="standard">
+                <mat-label>City Name</mat-label>
+                <input formControlName="locaName" matInput placeholder="City*">
+                <mat-error> City Name is required </mat-error>
+              </mat-form-field>
+              <div class="button-row">
+                <button mat-raised-button color="primary" (click)="onCreate()" [disabled]="localForm.invalid"
+                  type="submit">{{actionBtn}}</button>
+                <button mat-raised-button color="warn" (click)=" onClear()">Claer</button>
+              </div>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+
+  </div>
+

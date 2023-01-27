@@ -1,0 +1,36 @@
+<mat-toolbar>
+    <span>{{actionTitel}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1">
+      <mat-icon class="mat-18">close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+
+    <form [formGroup]="companyForm" class="normal-form">
+        <mat-grid-list cols="1" rowHeight="120px">
+          <mat-grid-tile>
+            <div class="contorles-container">
+              <mat-form-field appearance="standard">
+                <mat-label>Fuel Type</mat-label>
+                <input formControlName="companyName" matInput placeholder="Company Name*">
+                <mat-error> Fuel Type is required </mat-error>
+              </mat-form-field>
+              <div class="button-row">
+                <button mat-raised-button color="primary" (click)="onCreate()" [disabled]="companyForm.invalid"
+                  type="submit">
+                  <i *ngIf="showLoading" class="fa fa-spinner fa-spin" style="font-size:18px"></i>&nbsp;&nbsp;
+                  <span *ngIf="showLoading" >Loading...</span>
+                  <span *ngIf="!showLoading" >{{actionBtn}}</span>
+                </button>
+                <button mat-raised-button color="warn" (click)=" onClear()">Claer</button>
+              </div>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+
+  </div>
+
+

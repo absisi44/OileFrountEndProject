@@ -1,0 +1,65 @@
+<div class="container-fluid page">
+
+    <div  class="page__box p-3 "><mat-icon>dynamic_form
+    </mat-icon> discriminations</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__content-data postion-absolute">
+            <!--Home content Goss here-->
+
+            
+            <div class="search-div">
+                <button mat-raised-button (click)="onCreate()">
+                  <mat-icon class="mat-18">add</mat-icon>Create
+                </button>
+                <mat-form-field class="serach-from-field" floatLabel="never">
+                  <mat-label>Search</mat-label>
+                  <input matInput [(ngModel)]="SearrchKey"  placeholder="Search"
+                  (keyup)="applyFilter()" autocomplete="off" #input>
+                  <button mat-button matSuffix mat-icon-button aria-label="Clear" 
+                  *ngIf="SearrchKey"  (click)="Onsearch()">
+                    <mat-icon class="mat-18">close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+
+              <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+              
+                  <!-- ID Column -->
+                  <ng-container matColumnDef="dicrId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.dicrId}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="discrName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Discrimition  </th>
+                    <td mat-cell *matCellDef="let row"> {{row.discrName}} </td>
+                  </ng-container>
+              
+              <!-- Action Column -->
+              <ng-container matColumnDef="Action">
+                <th mat-header-cell *matHeaderCellDef > Action </th>
+                <td mat-cell *matCellDef="let row">
+                  <button mat-icon-button (click)="onEdit(row)">
+                    <mat-icon color="primary"  class="mat-18">edit</mat-icon></button>
+                  <button (click)="OnDelete(row.id)" mat-icon-button>
+                    <mat-icon color="warn" class="mat-18">delete</mat-icon></button>
+                 </td>
+              </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              
+                  <!-- Row shown when there is no matching data. -->
+                  <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                  </tr>
+                </table>
+              
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons="" aria-label="Select page of users"></mat-paginator>
+              </div>
+
+
+        </div>
+    </div>
+</div>

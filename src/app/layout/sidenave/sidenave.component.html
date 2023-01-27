@@ -1,0 +1,51 @@
+
+<mat-sidenav-container>
+    <mat-sidenav  mode="side"  [opened]="SidBarOpen" class="vertical-menu">
+
+        
+    <mat-nav-list>
+        <div class="logo py-4">
+            <img src="../../../assets/Images/lonew3.png" alt="Management System">
+        
+            </div>
+           
+            <mat-divider class="onediv"></mat-divider>
+            <h2 mat-subheader class="m-2">Application</h2>
+        <a mat-list-item routerLink="/home" routerLinkActive="list-item-active">
+            <mat-icon>home</mat-icon> Home</a>
+            
+            <a mat-list-item routerLink="/income" routerLinkActive="list-item-active"  > 
+                <mat-icon>local_gas_station </mat-icon>Income</a>
+
+                <a mat-list-item routerLink="/exitpermit" routerLinkActive="list-item-active"  >
+                    <mat-icon>card_giftcard </mat-icon>Exit Permit</a>
+
+            <a mat-list-item routerLink="/dischage" routerLinkActive="list-item-active"  > 
+                <mat-icon>ev_station </mat-icon>Discharge</a>
+            
+            <a mat-list-item routerLink="/fuelTicktDept" routerLinkActive="list-item-active"  >
+                 <mat-icon>description </mat-icon>FuelTicktDept</a>
+
+            <a mat-list-item routerLink="/transit" routerLinkActive="list-item-active"  >
+                 <mat-icon>transit_enterexit </mat-icon>Transit</a>
+
+            <a mat-list-item routerLink="/fuel" routerLinkActive="list-item-active" > 
+                <mat-icon>oil_barrel</mat-icon>Fuel Types</a>
+            <a mat-list-item routerLink="/company" routerLinkActive="list-item-active">
+                 <mat-icon>store</mat-icon>Companies</a>
+            <a mat-list-item routerLink="/locals" routerLinkActive="list-item-active" > 
+                <mat-icon>room_preferences</mat-icon>Locals</a>
+            <a mat-list-item routerLink="/discrimination" routerLinkActive="list-item-active" >
+                 <mat-icon>dynamic_form</mat-icon>Discriminations</a>
+            <a mat-list-item routerLink="/stock" routerLinkActive="list-item-active" >
+                 <mat-icon>add_business</mat-icon>Stoks</a>
+            
+    </mat-nav-list>
+</mat-sidenav>
+
+<app-header (teggleSidebarForMe)="toggleSidebar()"  ></app-header>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+</mat-sidenav-container>
+

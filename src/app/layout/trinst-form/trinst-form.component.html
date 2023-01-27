@@ -1,0 +1,69 @@
+
+<mat-toolbar>
+    <span>{{actionTitel}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1">
+      <mat-icon class="mat-18">close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+    <form [formGroup]="trinsitForm" class="normal-form">
+      <mat-grid-list cols="2" rowHeight="250px">
+        <mat-grid-tile>
+          <div class="contorles-container">
+            <mat-form-field appearance="standard">
+              <mat-label>Truck Number</mat-label>
+              <input formControlName="truckNo" matInput placeholder="Truck Number*">
+              <mat-error> Truck Number is required </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+              <mat-label>Fuel Type</mat-label>
+              <mat-select formControlName="fuel" placeholder="Fuel Type*">
+                <mat-option *ngFor="let fuels of fuelDate " [value]="fuels">
+                  {{fuels.fuelName}}
+                </mat-option>
+              </mat-select>
+              <mat-error> FuelType is required </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+              <mat-label>Quantity</mat-label>
+              <input formControlName="quantity" matInput placeholder="Quantity*">
+              <mat-error> Quantity is required </mat-error>
+            </mat-form-field>
+            
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="contorles-container">
+            
+            <mat-form-field appearance="standard">
+              <mat-label>Company</mat-label>
+              <mat-select formControlName="company" placeholder="Company*">
+                <mat-option *ngFor="let company of companyDate " [value]="company">{{company.companyName}}</mat-option>
+              </mat-select>
+              <mat-error> Company is required </mat-error>
+            </mat-form-field>
+
+            
+            <mat-form-field appearance="standard">
+              <mat-label>Shepment Dirction</mat-label>
+              <input formControlName="shepmetDirection" matInput placeholder="Shepment Dirction*">
+              <mat-error> Shepment Dirction is required </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="standard">
+              <mat-label>Agent Name</mat-label>
+              <input formControlName="agentName" matInput placeholder="Agent Name*">
+              <mat-error> Agent Name is required </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+              <button mat-raised-button color="primary" (click)="onCreate()" [disabled]="trinsitForm.invalid"
+                type="submit">{{actionBtn}}</button>
+              <button mat-raised-button color="warn" (click)=" onClear()">Claer</button>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </div>
